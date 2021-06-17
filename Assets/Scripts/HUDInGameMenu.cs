@@ -9,6 +9,7 @@ public class HUDInGameMenu : MonoBehaviour
     public GameObject messagesPanel;
     public GameObject Joystick;
     public GameObject InGameMenuPanel;
+    public Button playGame;
     public Button showMessage;
     public Button closeChatPanel;
     public Button ResumeButton;
@@ -19,6 +20,7 @@ public class HUDInGameMenu : MonoBehaviour
 
     private bool _inputPressed;
     private GameManager _gameManager;
+    private PlayerNetworkManager manager;
     EventSystem m_EventSystem;
     //private VivoxVoiceManager _vivoxNetworkManager;
  
@@ -54,12 +56,13 @@ public class HUDInGameMenu : MonoBehaviour
     {
         //Fetch the current EventSystem. Make sure your Scene has one.
         m_EventSystem = EventSystem.current;
-
+        manager = FindObjectOfType<PlayerNetworkManager>();
         // Bind all the buttons
         MenuButton.gameObject.GetComponent<Button>().onClick.AddListener(MenuInputAction);
         ResumeButton.onClick.AddListener(ResumeButtonAction);
         showMessage.onClick.AddListener(showMessagePanel);
         closeChatPanel.onClick.AddListener(closeMessagePanel);
+        playGame.onClick.AddListener(PlayingGame);
         QuitButton.onClick.AddListener(QuitButtonAction);
        // ConfirmYesButton.onClick.AddListener(ConfirmYesButtonAction);
         ConfirmNoButton.onClick.AddListener(ConfirmNoAction);
@@ -138,6 +141,10 @@ public class HUDInGameMenu : MonoBehaviour
         ToggleConfirmMenu(false);
         // Remove focus on ui elements 
         m_EventSystem.SetSelectedGameObject(null);
+    }
+    private void PlayingGame()
+    {
+        manager.StopServer();
     }
 
     //show messages to user

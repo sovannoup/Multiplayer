@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdb99a29e179d14cb0acc43f175d9ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ApiAddress: https://mirror-matchmaking-service-n4ovagixja-ew.a.run.app
-  ApiKey: AIzaSyA86z6Rvh946XUJ7ZeaK4_CUCpM8g322Uc
+  ApiAddress: http://172.20.10.5:4296/list
+  ApiKey: mirror4296
   _onServerListUpdated:
     m_PersistentCalls:
       m_Calls: []
@@ -79,10 +79,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
+  PersistNetworkManagerToOfflineScene: 0
   runInBackground: 1
   autoStartServerBuild: 1
-  showDebugMessages: 0
   serverTickRate: 30
+  serverBatching: 1
+  serverBatchInterval: 0
   offlineScene: Assets/Mirror/Examples/Cloud/PongWithListServer/Scenes/ListServerLobbyScenePong.unity
   onlineScene: Assets/Mirror/Examples/Cloud/PongWithListServer/Scenes/PongGameScene.unity
   transport: {fileID: 7877660282335013212}
@@ -91,8 +93,7 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 1240244544407914, guid: 63ff03a40ac17a8488d37b9b4e1ffd3f,
-    type: 3}
+  playerPrefab: {fileID: 1240244544407914, guid: 63ff03a40ac17a8488d37b9b4e1ffd3f, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 1
   spawnPrefabs:

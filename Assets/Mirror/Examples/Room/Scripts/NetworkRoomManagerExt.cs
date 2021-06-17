@@ -9,7 +9,6 @@ namespace Mirror.Examples.NetworkRoom
         [Header("Spawner Setup")]
         [Tooltip("Reward Prefab for the Spawner")]
         public GameObject rewardPrefab;
-        NetworkManager networkManager;
 
         /// <summary>
         /// This is called on the server when a networked scene finishes loading.
@@ -42,10 +41,6 @@ namespace Mirror.Examples.NetworkRoom
         public override void OnRoomStopClient()
         {
             base.OnRoomStopClient();
-        }
-        public void userLoginServer()
-        {
-            networkManager.StartHost();
         }
 
         public override void OnRoomStopServer()

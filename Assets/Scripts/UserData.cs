@@ -28,18 +28,6 @@ public class UserData : NetworkBehaviour
     // Cache it here and destroy it in OnDestroy to prevent a memory leak
     Material cachedMaterial;
 
-    /*private void DisplayNameText(string newName = null)
-    {
-        if (isLocalPlayer)
-        {
-            m_NameText.SetActive(false);
-        }
-        else
-        {
-            m_NameText.GetComponent<Text>().text = newName ?? displayName;
-        }
-    }*/
-
     private void SetName(string oldname, string newName)
     {
         m_NameText.GetComponent<Text>().text = newName ?? displayName;
